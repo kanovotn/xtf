@@ -18,6 +18,7 @@ import cz.xtf.core.openshift.OpenShift;
 import cz.xtf.core.waiting.SimpleWaiter;
 import cz.xtf.core.waiting.Waiter;
 import cz.xtf.core.waiting.failfast.FailFastCheck;
+import io.fabric8.kubernetes.api.model.GenericKubernetesResource;
 import io.fabric8.openshift.api.model.ImageStream;
 import io.fabric8.openshift.api.model.ImageStreamTag;
 import io.fabric8.openshift.api.model.NamedTagEventList;
@@ -108,13 +109,13 @@ public class DockerImageMetadata {
 
     private static DockerImageMetadata getMetadataFromTag(ImageStreamTag imageStreamTag) {
         return areMetadataForImageReady(imageStreamTag)
-                ? new DockerImageMetadata((Map<String, Object>) imageStreamTag.getImage().getDockerImageMetadata().getValue())
+                ? new DockerImageMetadata(((GenericKubernetesResource) imageStreamTag.getImage().getDockerImageMetadata())
+                        .getAdditionalProperties())
                 : null;
     }
 
     private static boolean areMetadataForImageReady(ImageStreamTag tag) {
-        return tag != null && tag.getImage() != null && tag.getImage().getDockerImageMetadata() != null
-                && tag.getImage().getDockerImageMetadata().getValue() != null;
+        return tag != null && tag.getImage() != null && tag.getImage().getDockerImageMetadata() != null;
     }
 
     private static String randomString() {
