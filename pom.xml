@@ -73,7 +73,7 @@
         <version.jboss-dmr>1.3.0.Final</version.jboss-dmr>
         <version.junit5.platform>1.7.0</version.junit5.platform>
         <version.junit5.jupiter>5.7.0</version.junit5.jupiter>
-        <version.junit5.jupiter.engine>5.7.0</version.junit5.jupiter.engine>
+        <version.junit5.jupiter.engine>6.1.3</version.junit5.jupiter.engine>
         <version.junit5.jupiter.params>5.7.0</version.junit5.jupiter.params>
         <version.junit5.jupiter.system.stubs>2.0.1</version.junit5.jupiter.system.stubs>
         <version.mockito>5.8.0</version.mockito>
