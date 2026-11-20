@@ -26,6 +26,7 @@ updates:
       day: "monday"
       time: "06:00"
       timezone: "UTC"
+    target-branch: "audit"
     open-pull-requests-limit: 5
     groups:
       actions:
